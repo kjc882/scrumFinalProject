@@ -2,6 +2,6 @@
 
 Members:<br>
     Aaron Henry (Product Owner)<br>
-    Brian Robinson (Scrum Master)<br>
-    John Conrad<br>
+    Brian Robinson<br>
+    John Conrad (Scrum Master)<br>
     Kieran Chang<br>
