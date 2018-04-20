@@ -23,4 +23,9 @@
 hs_err_pid*
 /HelloWorldJava/nbproject/private/
 /HelloWorldJava/build/
+<<<<<<< HEAD
 /JavaBubbleSort/build/
+=======
+/JavaQueue/nbproject/private/
+/JavaQueue/build/
+>>>>>>> JavaQueue
