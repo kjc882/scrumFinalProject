@@ -23,3 +23,19 @@
 hs_err_pid*
 /HelloWorldJava/nbproject/private/
 /HelloWorldJava/build/
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+/JavaBubbleSort/build/
+=======
+/JavaQueue/nbproject/private/
+/JavaQueue/build/
+>>>>>>> JavaQueue
+=======
+/JavaStack/nbproject/private/
+/JavaStack/build/
+>>>>>>> StackJava
+=======
+/JavaBST/nbproject/private/
+/JavaBST/build/
+>>>>>>> JavaBST
