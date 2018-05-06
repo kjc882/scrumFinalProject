@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Software Engineering Final</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+      
+      body{
+          background-color: white;
+      }
+      
+      h1{
+          text-align: center;
+      }
+      
+      h5, h4{
+          text-indent: 4%;
+      }
+      
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="helloWorld.html">Hello World</a></li>
+        <li><a href="bubbleSort.html">Bubble Sort</a></li>
+        <li><a href="stack.html">Stack</a></li>
+        <li class="active"><a href="queue.html">Queue</a></li>
+        <li><a href="bst.html">Binary Search Tree</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="suggestion.html"><span class="glyphicon glyphicon-log-in"></span> Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Stack</h1>
+      <h4>On this page we will be comparing how to implement a Stack. We will be looking at how to do this in C, Swift, and Java.</h4>
+      <hr>
+    <pre>
+            // A structure to represent a stack
+            struct Stack
+            {
+                int top;
+                unsigned capacity;
+                int* array;
+            };
+
+            // function to create a stack of given capacity. It initializes size of
+            // stack as 0
+            struct Stack* createStack(unsigned capacity)
+            {
+                struct Stack* stack = (struct Stack*) malloc(sizeof(struct Stack));
+                stack->capacity = capacity;
+                stack->top = -1;
+                stack->array = (int*) malloc(stack->capacity * sizeof(int));
+                return stack;
+            }
+
+            // Stack is full when top is equal to the last index
+            int isFull(struct Stack* stack)
+            { return stack->top == stack->capacity - 1; }
+
+            // Stack is empty when top is equal to -1
+            int isEmpty(struct Stack* stack)
+            { return stack->top == -1; }
+
+            // Function to add an item to stack. It increases top by 1
+            void push(struct Stack* stack, int item)
+            {
+                if (isFull(stack))
+                    return;
+                stack->array[++stack->top] = item;
+                printf("%d pushed to stack\n", item);
+            }
+
+            // Function to remove an item from stack. It decreases top by 1
+            int pop(struct Stack* stack)
+            {
+                if (isEmpty(stack))
+                    return INT_MIN;
+                return stack->array[stack->top--];
+            }
+
+            int main()
+            {
+                struct Stack* stack = createStack(100);
+
+                push(stack, 10);
+                push(stack, 20);
+                push(stack, 30);
+
+                printf("%d popped from stack\n", pop(stack));
+
+                return 0;
+            }
+
+        </pre>
+        <br><br>
+        <h5>Above is the code for a Stack in C. There are a few functions above that are necesary to have a Stack. When you "push" you are adding an element to the queue and "pull" is when you remove an element from the queue</h5><br><br>
+        
+        <pre>
+            public class JavaStack {
+
+                class Node{
+                    int key;
+                    Node next;
+                    
+                    //Constructor
+                    public Node(int num){
+                        key = num;
+                        next = null;
+                    }
+                }
+                
+                //create the root node
+                Node root = null;
+                
+                //constructor
+                JavaStack(int key){
+                    root = new Node(key);
+                }
+                
+                public Node insert(Node node, int key){
+                    //insert key at the head of the linked list
+                    //acting as a stack. 
+                    //Note: this will only happen if the root is
+                    //not set in main
+                    if(node == null){
+                        Node node1 = new Node(key);
+                        return node1;
+                    }
+                    
+                    //create the node to be added at the head
+                    Node node1 = new Node(key);
+                    //set the new node to point to the old head
+                    node1.next = node;
+                    //return node1 as the new head of the list
+                    return node1;
+                }
+                
+                public Node remove(Node node){
+                    //check if the node to remove is the last
+                    //node on the stack
+                    if(node.next == null){
+                        node = null;
+                        return node;
+                    }
+                    
+                    //create holder node and set it to the next
+                    //element in the list
+                    Node tmp = node.next;
+                    
+                    //delete the old head
+                    node = null;
+                    
+                    //return the new head of the list
+                    return tmp;
+                }
+                
+                public void print(Node node){
+                    while(node.next != null){
+                        System.out.println(node.key);
+                        node = node.next;
+                    }
+                    
+                    System.out.println(node.key);
+                }
+                
+                /**
+                 * @param args the command line arguments
+                 */
+                public static void main(String[] args) {
+                    //create the stack
+                    JavaStack js = new JavaStack(50);
+                    
+                    //populate the stack
+                    js.root = js.insert(js.root, 30);
+                    js.root = js.insert(js.root, 20);
+                    js.root = js.insert(js.root, 40);
+                    js.root = js.insert(js.root, 70);
+                    js.root = js.insert(js.root, 60);
+                    js.root = js.insert(js.root, 80);
+                    
+                    //printing the stack
+                    System.out.println("Stack after insertions");
+                    js.print(js.root);
+                    
+                    //de-populating the stack
+                    js.root = js.remove(js.root);
+                    js.root = js.remove(js.root);
+                    js.root = js.remove(js.root);
+                    
+                    //printing the stack
+                    System.out.println("Stack after removals");
+                    js.print(js.root);
+                }
+                
+            }
+
+        </pre>
+        <h5>Above is the Java way to create and use a stack</h5>
+        <br><br>
+        <pre>THIS IS WHERE THE SWIFT EXAMPLE WILL GO</pre>
+        <h5>Above we have the queue implemented in Swift</h5>
+        
+        
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Thanks for using our website</p>
+</footer>
+
+</body>
+</html>
