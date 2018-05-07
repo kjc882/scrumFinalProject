@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Software Engineering Final</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+      
+      body{
+          background-color: white;
+      }
+      
+      h1{
+          text-align: center;
+      }
+      
+      h5, h4{
+          text-indent: 4%;
+      }
+      
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="helloWorld.html">Hello World</a></li>
+        <li><a href="bubbleSort.html">Bubble Sort</a></li>
+        <li><a href="stack.html">Stack</a></li>
+        <li class="active"><a href="queue.html">Queue</a></li>
+        <li><a href="bst.html">Binary Search Tree</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="suggestion.html"><span class="glyphicon glyphicon-log-in"></span> Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Stack</h1>
+      <h4>On this page we will be comparing how to implement a Stack. We will be looking at how to do this in C, Swift, and Java.</h4>
+      <hr>
+    <pre>
+            int main()
+            {
+               printf("Hello, World!");
+               return 0;
+            }
+
+        </pre>
+        <br><br>
+        <h5>Above is the code for a Bubble Sort in C.</h5><br><br>
+        
+        <pre>
+
+              package javabubblesort;
+
+              public class JavaBubbleSort {
+
+                  //the entire sorting algorithm
+                  public void bubbleSort(int[] arr){
+                      int n = arr.length;
+                      for (int i = 0; i < n-1; i++)
+                          for (int j = 0; j < n-i-1; j++)
+                              if (arr[j] > arr[j+1])
+                              {
+                                  // swap temp and arr[i]
+                                  int temp = arr[j];
+                                  arr[j] = arr[j+1];
+                                  arr[j+1] = temp;
+                              }
+                  }
+                  
+                  public void printArray(int[] arr){
+                      for(int i = 0; i < arr.length - 1; i++){
+                          System.out.println(arr[i]);
+                      }
+                  }
+                  
+                  /**
+                   * @param args the command line arguments
+                   */
+                  public static void main(String[] args) {
+                      JavaBubbleSort jbs = new JavaBubbleSort();
+
+                      //create the array
+                      int[] array = {50, 30, 20, 40, 70, 60, 80};
+                      
+                      //print the array before sorting
+                      System.out.println("Before Sorting");
+                      jbs.printArray(array);
+                      jbs.bubbleSort(array);
+                      
+                      //print the array after sorting
+                      System.out.println("After Sorting");
+                      jbs.printArray(array);
+                  }
+                  
+              }
+
+        </pre>
+        <h5>Above is the Java way to create Bubble Sort</h5>
+        <br><br>
+        <pre>THIS IS WHERE THE SWIFT EXAMPLE WILL GO</pre>
+        <h5>Above we have the queue implemented in Swift</h5>
+        
+        
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Thanks for using our website</p>
+</footer>
+
+</body>
+</html>
