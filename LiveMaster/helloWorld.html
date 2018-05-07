@@ -14,16 +14,6 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 100vh}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
@@ -39,6 +29,19 @@
       }
       .row.content {height:auto;} 
     }
+      
+      body{
+          background-color: white;
+      }
+      
+      h1{
+          text-align: center;
+      }
+      
+      h5, h4{
+          text-indent: 4%;
+      }
+      
   </style>
 </head>
 <body>
@@ -73,15 +76,74 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Hello World</h1>
-      <h4>On this page we will be comparing the most basic entry level lines of code, the HelloWorld. We will be looking at how to do this in C, Swift, and Java.</h4>
+      <h4>On this page we will be comparing how to implement a Hello World. We will be looking at how to do this in C, Swift, and Java.</h4>
       <hr>
-      <div>This will hold the images for the code blocks</div>
+    <pre>
+    #include <stdio.h>
+ 
+    int main()
+{
+  int array[100], n, c, d, swap;
+ 
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+ 
+  printf("Enter %d integers\n", n);
+ 
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+ 
+  for (c = 0 ; c < ( n - 1 ); c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use < */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
+      }
+    }
+  }
+ 
+  printf("Sorted list in ascending order:\n");
+ 
+  for ( c = 0 ; c < n ; c++ )
+     printf("%d\n", array[c]);
+ 
+  return 0;
+}
+
+        </pre>
+        <br><br>
+        <h5>Above is the code for a "Hello World" in C.</h5><br><br>
+        
+        <pre>
+
+            package helloworldjava;
+
+
+            public class HelloWorldJava {
+
+                /**
+                 * @param args the command line arguments
+                 */
+                public static void main(String[] args) {
+                    System.out.println("Hello World!");
+                }
+                
+            }
+
+        </pre>
+        <h5>Above is the Java way to create Hello World</h5>
+        <br><br>
+        <pre>THIS IS WHERE THE SWIFT EXAMPLE WILL GO</pre>
+        <h5>Above we have the queue implemented in Swift</h5>
+        
+        
     </div>
     <div class="col-sm-2 sidenav">
     </div>
@@ -94,4 +156,3 @@
 
 </body>
 </html>
-

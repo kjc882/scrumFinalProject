@@ -14,16 +14,6 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 100vh}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
@@ -39,6 +29,19 @@
       }
       .row.content {height:auto;} 
     }
+      
+      body{
+          background-color: white;
+      }
+      
+      h1{
+          text-align: center;
+      }
+      
+      h5, h4{
+          text-indent: 4%;
+      }
+      
   </style>
 </head>
 <body>
@@ -73,23 +76,77 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Bubble Sort</h1>
-      <h4>On this page we will be comparing a very simple way to order numbers and data, the Bubble Sort. We will be looking at how to do this in C, Swift, and Java.</h4>
+      <h4>On this page we will be comparing how to implement a Bubble sort. We will be looking at how to do this in C, Swift, and Java.</h4>
       <hr>
-      <div>images will go here</div>
+    <pre>
+            int main()
+            {
+             bubble sort
+            }
+
+        </pre>
+        <br><br>
+        <h5>Above is the code for a Bubble Sort in C.</h5><br><br>
+        
+        <pre>
+
+              package javabubblesort;
+
+              public class JavaBubbleSort {
+
+                  //the entire sorting algorithm
+                  public void bubbleSort(int[] arr){
+                      int n = arr.length;
+                      for (int i = 0; i  n-1; i++)
+                          for (int j = 0; j n-i-1; j++)
+                              if (arr[j]  arr[j+1])
+                              {
+                                  // swap temp and arr[i]
+                                  int temp = arr[j];
+                                  arr[j] = arr[j+1];
+                                  arr[j+1] = temp;
+                              }
+                  }
+                  
+                  public void printArray(int[] arr){
+                      for(int i = 0; i arr.length - 1; i++){
+                          System.out.println(arr[i]);
+                      }
+                  }
+                  
+                  /**
+                   * @param args the command line arguments
+                   */
+                  public static void main(String[] args) {
+                      JavaBubbleSort jbs = new JavaBubbleSort();
+
+                      //create the array
+                      int[] array = {50, 30, 20, 40, 70, 60, 80};
+                      
+                      //print the array before sorting
+                      System.out.println("Before Sorting");
+                      jbs.printArray(array);
+                      jbs.bubbleSort(array);
+                      
+                      //print the array after sorting
+                      System.out.println("After Sorting");
+                      jbs.printArray(array);
+                  }
+                  
+              }
+
+        </pre>
+        <h5>Above is the Java way to create Bubble Sort</h5>
+        <br><br>
+        <pre>THIS IS WHERE THE SWIFT EXAMPLE WILL GO</pre>
+        <h5>Above we have the queue implemented in Swift</h5>
+        
+        
     </div>
     <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
     </div>
   </div>
 </div>
@@ -100,4 +157,3 @@
 
 </body>
 </html>
-
