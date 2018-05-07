@@ -79,37 +79,173 @@
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Stack</h1>
-      <h4>On this page we will be comparing how to implement a Stack. We will be looking at how to do this in C, Swift, and Java.</h4>
+      <h4>On this page we will be comparing how to implement a Binary Search Tree (BST). We will be looking at how to do this in C, Swift, and Java.</h4>
       <hr>
     <pre>
-            int main()
-            {
-               printf("Hello, World!");
-               return 0;
-            }
+
+          struct node
+          {
+              int key;
+              struct node *left, *right;
+          };
+
+          // function to create a new BST node
+          struct node *newNode(int item)
+          {
+              struct node *temp = (struct node *)malloc(sizeof(struct node));
+              temp->key = item;
+              temp->left = temp->right = NULL;
+              return temp;
+          }
+
+          // A function to do in-order traversal of BST
+          void inorder(struct node *root)
+          {
+              if (root != NULL)
+              {
+                  inorder(root->left);
+                  printf("%d \n", root->key);
+                  inorder(root->right);
+              }
+          }
+
+          /* function to insert a new node with given key in BST */
+          struct node* insert(struct node* node, int key)
+          {
+              /* If the tree is empty, return a new node */
+              if (node == NULL) return newNode(key);
+              
+              /* Otherwise, move down the tree */
+              if (key < node->key)
+                  node->left = insert(node->left, key);
+              else if (key > node->key)
+                  node->right = insert(node->right, key);
+              
+              /* return the origonal node pointer */
+              return node;
+          }
+
+          int main()
+          {
+              /* BST
+                  50
+                /    \
+               30     70
+              / \     / \
+             20 40   60 80 */
+              struct node *root = NULL;
+              root = insert(root, 50);
+              insert(root, 30);
+              insert(root, 20);
+              insert(root, 40);
+              insert(root, 70);
+              insert(root, 60);
+              insert(root, 80);
+              
+              // print in-oder traversal of the BST
+              inorder(root);
+              
+              return 0;
+          }
 
         </pre>
         <br><br>
-        <h5>Above is the code for a "Hello World" in C.</h5><br><br>
+        <h5>Above is the code for a BST in C. You need the insert function. This function adds a new "node" into the bst in the correct sorted spot in the tree.</h5><br><br>
         
         <pre>
 
-            package helloworldjava;
+            package javabst;
 
-
-            public class HelloWorldJava {
-
-                /**
-                 * @param args the command line arguments
-                 */
-                public static void main(String[] args) {
-                    System.out.println("Hello World!");
+            public class JavaBST {
+                
+                //Node Class
+                //Nodes may only take ints in this example
+                class Node{
+                    int key;
+                    Node left, right;
+                    
+                    //Constructor
+                    public Node(int num){
+                        key = num;
+                        left = right = null;
+                    }
                 }
                 
+                Node root;
+                
+                //JavaBST constructor
+                JavaBST(){
+                    root = null;
+                }
+                
+                public void inOrder(){
+                    inOrderReal(root);
+                }
+                
+                //traverse the tree in order
+                public void inOrderReal(Node root){
+                    if(root != null){
+                        inOrderReal(root.left);
+                        System.out.println(root.key);
+                        inOrderReal(root.right);
+                    }
+                }
+                
+                public void insertSet(int key){
+                    root = insertReal(root, key);
+                }
+                
+                public Node insertReal(Node root, int key){
+                    
+                    //base case
+                    if(root == null){
+                        System.out.println("insertion");
+                        root = new Node(key);
+                        return root;
+                    }
+                    
+                    //if this key is smaller than the current
+                    //root's key move left
+                    if(key < root.key){
+                        System.out.println("left");
+                        System.out.println(root.key);
+                        root.left = insertReal(root.left, key);
+                    }
+                    //else move right
+                    else if(key > root.key){
+                        System.out.println("right");
+                        System.out.println(root.key);
+                        root.right = insertReal(root.right, key);
+                    }
+                    return root;
+                }
+                
+                public static void main(String[] args) {
+                    /*   BST
+                          50
+                        /    \
+                      30     70
+                      / \     / \
+                     20 40   60 80 
+                    */
+                   
+                    //creating the tree
+                    JavaBST bst = new JavaBST();
+                    bst.insertSet(50);
+                    bst.insertSet(30);
+                    bst.insertSet(20);
+                    bst.insertSet(40);
+                    bst.insertSet(70);
+                    bst.insertSet(60);
+                    bst.insertSet(80);
+                    
+                    //display the tree in order
+                    bst.inOrder();
+                }
             }
 
         </pre>
-        <h5>Above is the Java way to create Hello World</h5>
+        <h5>Above is the Java way to create BST</h5>
         <br><br>
         <pre>THIS IS WHERE THE SWIFT EXAMPLE WILL GO</pre>
         <h5>Above we have the queue implemented in Swift</h5>
